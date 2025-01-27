@@ -63,7 +63,7 @@ public class CardTrick {
         // add one luckcard hard code 2,clubs
         Card luckCard = new Card();
         luckCard.setValue(2);
-        luckCard.setSuit(Card.SUITS[2]); // 2 corresponds to Clubs in the SUITS array
+        luckCard.setSuit(Card.SUITS[3]); // 2 corresponds to Clubs in the SUITS array
         System.out.println("The luck card is: " + luckCard.getValue() + " of " + luckCard.getSuit());
         
     }
