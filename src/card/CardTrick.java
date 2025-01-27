@@ -31,41 +31,31 @@ public class CardTrick {
             System.out.println("Card " + (i + 1) + ": " + magicHand[i].getValue() + " of " + magicHand[i].getSuit());
         }
 
-        // Ask the user for card value and suit
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a card value (1-13): ");
-        int userValue = input.nextInt();
-        System.out.print("Enter a suit (0=Hearts, 1=Diamonds, 2=Clubs, 3=Spades): ");
-        int userSuitIndex = input.nextInt();
-
-        // Create the user's card from their input
-        Card playersCard = new Card();
-        playersCard.setValue(userValue);
-        playersCard.setSuit(Card.SUITS[userSuitIndex]);
-
-        // Search magicHand for the user's card
-        boolean found = false;
-        for (Card c : magicHand) {
-            if (c.getValue() == playersCard.getValue() && c.getSuit().equals(playersCard.getSuit())) {
-                found = true;
-                break;
-            }
-        }
-
-        // Report the result
-        if (found) {
-            System.out.println("Congratulations! Your card is in the magic hand.");
-        } else {
-            System.out.println("Sorry, your card is not in the magic hand.");
-        }
+       
 
 
         // add one luckcard hard code 2,clubs
         Card luckCard = new Card();
         luckCard.setValue(2);
-        luckCard.setSuit(Card.SUITS[2]); // 2 corresponds to Clubs in the SUITS array
+        luckCard.setSuit(Card.SUITS[3]); // 2 corresponds to Clubs in the SUITS array
         System.out.println("The luck card is: " + luckCard.getValue() + " of " + luckCard.getSuit());
         
+        // Search magicHand for the luckCard
+        boolean luckFound = false;
+        for (Card c : magicHand) {
+            if (c.getValue() == luckCard.getValue() && c.getSuit().equals(luckCard.getSuit())) {
+                luckFound = true;
+                break;
+            }
+        }
+
+        // Report the result
+        if (luckFound) {
+            System.out.println("The luck card is in the magic hand. You win!");
+        } else {
+            System.out.println("The luck card is not in the magic hand. Better luck next time!");
+        }
+
     }
     
 }
